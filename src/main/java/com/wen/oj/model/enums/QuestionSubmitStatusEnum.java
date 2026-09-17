@@ -1,26 +1,29 @@
 package com.wen.oj.model.enums;
 
+import org.apache.commons.lang3.ObjectUtils;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import org.apache.commons.lang3.ObjectUtils;
 
 /**
- * 文件上传业务类型枚举
+ * 判题状态枚举
  *
- * @author <a href="https://github.com/liyupi">程序员鱼皮</a>
- * @from <a href="https://yupi.icu">编程导航知识星球</a>
+ * @author a1472
  */
 @SuppressWarnings("all")
-public enum FileUploadBizEnum {
+public enum QuestionSubmitStatusEnum {
 
-    USER_AVATAR("用户头像", "user_avatar");
+    WAITING("待判题", 0),
+    RUNNING("判题中", 1),
+    SUCCEED("成功", 2),
+    FAILED("失败", 3);
 
     private final String text;
 
-    private final String value;
+    private final int value;
 
-    FileUploadBizEnum(String text, String value) {
+    QuestionSubmitStatusEnum(String text, int value) {
         this.text = text;
         this.value = value;
     }
@@ -30,7 +33,7 @@ public enum FileUploadBizEnum {
      *
      * @return
      */
-    public static List<String> getValues() {
+    public static List<Integer> getValues() {
         return Arrays.stream(values()).map(item -> item.value).collect(Collectors.toList());
     }
 
@@ -40,19 +43,19 @@ public enum FileUploadBizEnum {
      * @param value
      * @return
      */
-    public static FileUploadBizEnum getEnumByValue(String value) {
+    public static QuestionSubmitStatusEnum getEnumByValue(Integer value) {
         if (ObjectUtils.isEmpty(value)) {
             return null;
         }
-        for (FileUploadBizEnum anEnum : FileUploadBizEnum.values()) {
-            if (anEnum.value.equals(value)) {
+        for (QuestionSubmitStatusEnum anEnum : QuestionSubmitStatusEnum.values()) {
+            if (anEnum.value == value) {
                 return anEnum;
             }
         }
         return null;
     }
 
-    public String getValue() {
+    public int getValue() {
         return value;
     }
 

@@ -1,9 +1,10 @@
 package com.wen.oj.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.util.Date;
+
+import com.wen.oj.model.dto.questionsubmit.JudgeInfo;
 import lombok.Data;
 
 /**
@@ -30,7 +31,7 @@ public class QuestionSubmit {
     private String code;
 
     /**
-     * 判题信息（json 对象）
+     * 判题信息
      */
     private String judgeInfo;
 
@@ -62,5 +63,9 @@ public class QuestionSubmit {
     /**
      * 是否删除
      */
+    @TableLogic
     private Integer isDelete;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
 }

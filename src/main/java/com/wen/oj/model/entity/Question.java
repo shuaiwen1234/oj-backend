@@ -1,9 +1,12 @@
 package com.wen.oj.model.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
+
 import java.util.Date;
+import java.util.List;
+
+import com.wen.oj.model.dto.question.JudgeCase;
+import com.wen.oj.model.dto.question.JudgeConfig;
 import lombok.Data;
 
 /**
@@ -50,12 +53,12 @@ public class Question {
     private Integer acceptedNum;
 
     /**
-     * 判题用例（json 数组）
+     * 判题用例
      */
     private String judgeCase;
 
     /**
-     * 判题配置（json 对象）
+     * 判题配置
      */
     private String judgeConfig;
 
@@ -87,5 +90,10 @@ public class Question {
     /**
      * 是否删除
      */
+    @TableLogic
     private Integer isDelete;
+
+    @TableField(exist = false)
+    private static final long serialVersionUID = 1L;
+
 }

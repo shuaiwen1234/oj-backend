@@ -145,3 +145,12 @@ fabric.properties
 # Android studio 3.1+ serialized cache file
 .idea/caches/build_file_checksums.ser
 
+/sql/post_es_mapping.json
+/sql/create_table.sql
+/src/test/java/com/wen/oj/manager/CosManagerTest.java
+/src/test/java/com/wen/oj/mapper/PostFavourMapperTest.java
+/src/test/java/com/wen/oj/service/UserServiceTest.java
+/src/test/java/com/wen/oj/service/PostFavourServiceTest.java
+/src/test/java/com/wen/oj/service/PostThumbServiceTest.java
+/src/test/java/com/wen/oj/utils/EasyExcelTest.java
+/src/test/java/com/wen/oj/MainApplicationTests.java
