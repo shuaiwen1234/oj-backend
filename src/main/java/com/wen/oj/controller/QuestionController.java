@@ -61,6 +61,12 @@ public class QuestionController {
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
         }
+        if(questionAddRequest.getJudgeCase()!=null) {
+            question.setJudgeCase(JSONUtil.toJsonStr(questionAddRequest.getJudgeCase()));
+        }
+        if(questionAddRequest.getJudgeConfig()!=null) {
+            question.setJudgeConfig(JSONUtil.toJsonStr(questionAddRequest.getJudgeConfig()));
+        }
         questionService.validQuestion(question, true);
         User loginUser = userService.getLoginUser(request);
         question.setUserId(loginUser.getId());
@@ -115,6 +121,12 @@ public class QuestionController {
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
         }
+        if(questionUpdateRequest.getJudgeCase()!=null) {
+            question.setJudgeCase(JSONUtil.toJsonStr(questionUpdateRequest.getJudgeCase()));
+        }
+        if(questionUpdateRequest.getJudgeConfig()!=null) {
+            question.setJudgeConfig(JSONUtil.toJsonStr(questionUpdateRequest.getJudgeConfig()));
+        }
         // 参数校验
         questionService.validQuestion(question, false);
         long id = questionUpdateRequest.getId();
@@ -156,6 +168,7 @@ public class QuestionController {
         long size = questionQueryRequest.getPageSize();
         Page<Question> questionPage = questionService.page(new Page<>(current, size),
                 questionService.getQueryWrapper(questionQueryRequest));
+
         return ResultUtils.success(questionPage);
     }
 
@@ -219,6 +232,12 @@ public class QuestionController {
         List<String> tags = questionEditRequest.getTags();
         if (tags != null) {
             question.setTags(JSONUtil.toJsonStr(tags));
+        }
+        if(questionEditRequest.getJudgeCase()!=null) {
+            question.setJudgeCase(JSONUtil.toJsonStr(questionEditRequest.getJudgeCase()));
+        }
+        if(questionEditRequest.getJudgeConfig()!=null) {
+            question.setJudgeConfig(JSONUtil.toJsonStr(questionEditRequest.getJudgeConfig()));
         }
         // 参数校验
         questionService.validQuestion(question, false);

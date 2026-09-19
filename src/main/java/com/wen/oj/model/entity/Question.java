@@ -53,7 +53,8 @@ public class Question {
     private Integer acceptedNum;
 
     /**
-     * 判题用例
+     * 判题用例(是一个数组形式的字符串)
+     * 如 "["1","2","3"]"
      */
     private String judgeCase;
 

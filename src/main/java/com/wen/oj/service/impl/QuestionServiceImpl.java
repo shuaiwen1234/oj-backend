@@ -71,7 +71,7 @@ public class QuestionServiceImpl extends ServiceImpl<QuestionMapper, Question> i
         if (StringUtils.isNotBlank(question.getAnswer()) && question.getAnswer().length() > 8192) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "答案长度过长");
         }
-        if (StringUtils.isNotBlank(question.getTags())) {
+        if (StringUtils.isBlank(question.getTags())) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "请至少输入一个标签");
         }
         if (question.getTags().length() > 500) {
